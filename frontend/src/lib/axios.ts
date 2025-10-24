@@ -35,6 +35,8 @@ api.interceptors.response.use(
 
     originalRequest._retryCount = originalRequest._retryCount || 0;
 
+    // Giới hạn số lần thử tối đa cho phép thử là 4 lần
+
     if (error.response?.status === 403 && originalRequest._retryCount < 4) {
       originalRequest._retryCount += 1;
 
